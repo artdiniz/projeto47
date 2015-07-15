@@ -1,0 +1,62 @@
+.cartao {
+	margin: 32px 16px;
+  padding: 16px;
+	line-height: 1.5;
+	position: relative;
+	word-wrap: break-word;
+	font-family: "Lucida Grande", "Helvetica", "Arial", sans-serif;
+	background: #EBEF40;
+	box-shadow: 1px 1px 1px rgba(0,0,0,.1);
+	transition: transform .2s ease-in;
+}
+
+.cartao--some {
+	opacity: 0;
+	transition: 0.5s;
+}
+
+.cartao:focus,
+.cartao:hover {
+	outline: none;
+	transform: scale(1.1);
+}
+
+.cartao .opcoesDoCartao {
+	opacity: 0;
+	transition: opacity .2s ease;
+}
+
+.cartao:hover .opcoesDoCartao,
+.cartao:focus .opcoesDoCartao {
+	opacity: 1;
+}
+
+@media (min-width: 560px){
+
+	.cartao {
+		flex-grow: 1;
+		display: inline-block;
+		text-align: left;
+		box-sizing: border-box;
+		vertical-align: top;
+	}
+
+	@mixin tamanhoCartao($fonte, $largura){
+		font-size: $fonte;
+		width: $largura;
+		flex-basis: $largura;
+	}
+
+	.cartao--textoPequeno {
+		@include tamanhoCartao(1em, 11em);
+	}
+
+	.cartao--textoMedio {
+		@include tamanhoCartao(1.5em, 9em);
+	}
+
+	.cartao--textoGrande {
+		@include tamanhoCartao(2em, 6em);
+	}
+
+}
